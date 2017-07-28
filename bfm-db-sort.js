@@ -6,14 +6,6 @@ let db = []
         let keys = Object.keys(album)
 
         const trackKeys = keys.filter(k => k === 'Tracks' || k === setFields(10, 48, k))
-        // const trackKeys = keys.filter(key => key === 'Tracks' || key === trackField(key))
-        // function trackField (k) {
-        //     for (let i = 10; i <= 48; i++) {
-        //         if (k === (`FIELD${i}`)) {
-        //             return k
-        //         }
-        //     }
-        // }
 
         const tracksCleaned = trackKeys.filter(k => album[k] !== '')
 
@@ -28,14 +20,6 @@ let db = []
         })
 
         const goldKeys = keys.filter(k => k === 'Gold?' || k === setFields(50, 88, k))
-        // const goldKeys = keys.filter(k => k === 'Gold?' || k === goldField(k))
-        // function goldField (k) {
-        //     for (let i = 50; i <= 88; i++) {
-        //         if (k === (`FIELD${i}`)) {
-        //             return k
-        //         }
-        //     }
-        // }
 
         goldKeys.forEach((k, i) => {
             if (album[k]) {
@@ -44,14 +28,6 @@ let db = []
         })
 
         const scratchedKeys = keys.filter(k => k === 'Scratched?' || k == setFields(k, 90, 128))
-        // const scratchedKeys = keys.filter(k => k === 'Scratched?' || k == scratchField(k))
-        // function scratchField (k) {
-        //     for (let i = 90; i <= 128; i++) {
-        //         if (k === (`FIELD${i}`)) {
-        //             return k
-        //         }
-        //     }
-        // }
 
         scratchedKeys.forEach((k, i) => {
             if (album[k]) {
@@ -96,4 +72,4 @@ let db = []
 
         console.log(`${i + 1} of ${json.length}`)
     })
-    console.log(JSON.stringify(db, null, 4))
+    // console.log(JSON.stringify(db, null, 4))
