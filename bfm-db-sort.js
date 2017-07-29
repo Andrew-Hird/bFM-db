@@ -1,8 +1,10 @@
-const json = require('./convertcsv.json')
+const fs = require ('fs')
+
+const input = require('./convertcsv.json')
 
 let db = []
 
-    json.forEach((album, i) => {
+    input.forEach((album, i) => {
         let keys = Object.keys(album)
 
         const trackKeys = keys.filter(k => k === 'Tracks' || k === setFields(10, 48, k))
@@ -70,6 +72,7 @@ let db = []
             tracks: tracks
         })
 
-        console.log(`${i + 1} of ${json.length}`)
+        console.log(`${i + 1} of ${input.length}`)
     })
     // console.log(JSON.stringify(db, null, 4))
+    fs.writeFileSync('output.json', JSON.stringify(db), 'utf8')
